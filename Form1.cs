@@ -8,52 +8,59 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Lab08
+namespace Lab_8
 {
-    public partial class fMain : Form
+    public partial class MainForm : Form
     {
-        public fMain()
+        private BindingList<Bike> bikes;
+
+        public MainForm()
         {
             InitializeComponent();
+            bikes = new BindingList<Bike>();
+            listBox1.DisplayMember = "Name";
+            listBox1.DataSource = bikes;
+            listBox1.SelectedIndexChanged += new EventHandler(ListBox1_SelectedIndexChanged);
         }
 
-        private void btnAddBike_Click(object sender, EventArgs e)
+        private void BtnAddBike_Click(object sender, EventArgs e)
         {
             Bike bike = new Bike();
-            fBike ft = new fBike(bike);
-            if (ft.ShowDialog() == DialogResult.OK)
+            BikeForm af = new BikeForm(bike);
+            if (af.ShowDialog() == DialogResult.OK)
             {
-                tbBikeInfo.Text +=
-                string.Format("Назва: {0} , Клас: {1} , Тип: {2} , Колiр: {3} , Кількість катафотiв: {4},  {5} , {6} \r\n",
-                bike.Nazv, bike.Klass, bike.Type,
-                bike.Color, bike.Katafoti,
-                bike.Dzvonik ? "Є дзвоник" : "Немає дзвоника",
-                bike.Brakes_Disc ? "Дискові гальма" : "Не дискові гальма");
-                
+                bikes.Add(bike);
             }
         }
 
-        private void btnClose_Click(object sender, EventArgs e)
+        void ListBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (MessageBox.Show("Припинити роботу застосунку?",
-           "Припинити роботу", MessageBoxButtons.OKCancel,
-            MessageBoxIcon.Question) == DialogResult.OK)
+            Bike bike = (Bike)listBox1.SelectedItem;
+            MessageBox.Show("Назва:   " + bike.Nazv + " \n " +
+                "Клас: " + bike.Klass + " \n " +
+                "Тип: " + bike.Type + " \n " +
+                "Колір: " + bike.Color + "\n" +
+                "Кількість катафотів: " + bike.Katafoti + "\n" +
+                "Вага: " + bike.Weight + " кг",
+                "Інформація про велосипед", MessageBoxButtons.OK);
+        }
+
+        private void BtnClose_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Завершити роботу?", "Закінчення работи", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
+            {
                 Application.Exit();
+            }
         }
 
-        private void fMain_Load(object sender, EventArgs e)
+        private void MainForm_Load(object sender, EventArgs e)
         {
 
         }
 
-        private void tbBikeInfo_TextChanged(object sender, EventArgs e)
+        private void listBox1_SelectedIndexChanged_1(object sender, EventArgs e)
         {
 
         }
-    }
-
-    class tbBikeInfo
-    {
-        internal static string Text;
     }
 }

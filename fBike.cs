@@ -8,35 +8,43 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Lab08
+namespace Lab_8
 {
-    public partial class fBike : Form
+    public partial class BikeForm : Form
     {
-        private Bike TheBike;
-        internal fBike(Bike t)
+        public Bike TheBike;
+
+        public BikeForm(Bike t)
         {
             TheBike = t;
             InitializeComponent();
         }
-        
-        private void btnOk_Click(object sender, EventArgs e)
+
+        private void BtnOk_Click(object sender, EventArgs e)
         {
-            TheBike.Nazv = tbNazv.Text.Trim();
-            TheBike.Klass  = tbKlass.Text.Trim();
-            TheBike.Type = tbType.Text.Trim();
-            TheBike.Color = tbColor.Text.Trim();
-            TheBike.Katafoti = int.Parse(tbKatafoti.Text.Trim());
-            TheBike.Dzvonik = chbDzvonik.Checked;
-            TheBike.Brakes_Disc = chbBrakes_Disc.Checked;
-            DialogResult = DialogResult.OK;
+            try
+            {
+                TheBike.Nazv = tbNazv.Text.Trim();
+                TheBike.Klass = tbKlass.Text.Trim();
+                TheBike.Type = tbType.Text.Trim();
+                TheBike.Color = tbColor.Text.Trim();
+                TheBike.Katafoti = int.Parse(tbKatafoti.Text.Trim());
+                TheBike.Weight = int.Parse(tbWeight.Text.Trim());
+                DialogResult = DialogResult.OK;
+            }
+            catch (Exception ex)
+            {
+                string err = String.Format("Error number. {0}", ex.Message);
+                MessageBox.Show(err, "Conversion error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
-        private void btnCancel_Click(object sender, EventArgs e)
+        private void BtnCancel_Click(object sender, EventArgs e)
         {
             DialogResult = DialogResult.Cancel;
         }
 
-        private void fBike_Load(object sender, EventArgs e)
+        private void BikeForm_Load(object sender, EventArgs e)
         {
             if (TheBike != null)
             {
@@ -45,11 +53,8 @@ namespace Lab08
                 tbType.Text = TheBike.Type;
                 tbColor.Text = TheBike.Color;
                 tbKatafoti.Text = TheBike.Katafoti.ToString();
-                chbDzvonik.Checked = TheBike.Dzvonik;
-                chbBrakes_Disc.Checked = TheBike.Brakes_Disc;
+                tbWeight.Text = TheBike.Weight.ToString();
             }
         }
-
-       
     }
 }

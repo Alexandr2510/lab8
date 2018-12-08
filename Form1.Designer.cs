@@ -1,16 +1,16 @@
-﻿namespace Lab08
+﻿namespace Lab_8
 {
-    partial class fMain
+    partial class MainForm
     {
         /// <summary>
-        /// Обязательная переменная конструктора.
+        /// Required designer variable.
         /// </summary>
         private System.ComponentModel.IContainer components = null;
 
         /// <summary>
-        /// Освободить все используемые ресурсы.
+        /// Clean up any resources being used.
         /// </summary>
-        /// <param name="disposing">истинно, если управляемый ресурс должен быть удален; иначе ложно.</param>
+        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
         protected override void Dispose(bool disposing)
         {
             if (disposing && (components != null))
@@ -20,73 +20,81 @@
             base.Dispose(disposing);
         }
 
-        #region Код, автоматически созданный конструктором форм Windows
+        #region Windows Form Designer generated code
 
         /// <summary>
-        /// Требуемый метод для поддержки конструктора — не изменяйте 
-        /// содержимое этого метода с помощью редактора кода.
+        /// Required method for Designer support - do not modify
+        /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent()
         {
-            this.tbBikeInfo = new System.Windows.Forms.TextBox();
+            this.components = new System.ComponentModel.Container();
             this.btnAddBike = new System.Windows.Forms.Button();
             this.btnClose = new System.Windows.Forms.Button();
-            this.colorDialog1 = new System.Windows.Forms.ColorDialog();
+            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.invalidKatafotiExceptionBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.invalidKatafotiExceptionBindingSource)).BeginInit();
             this.SuspendLayout();
-            // 
-            // tbBikeInfo
-            // 
-            this.tbBikeInfo.Location = new System.Drawing.Point(12, 12);
-            this.tbBikeInfo.Multiline = true;
-            this.tbBikeInfo.Name = "tbBikeInfo";
-            this.tbBikeInfo.ReadOnly = true;
-            this.tbBikeInfo.Size = new System.Drawing.Size(588, 409);
-            this.tbBikeInfo.TabIndex = 0;
-            this.tbBikeInfo.TextChanged += new System.EventHandler(this.tbBikeInfo_TextChanged);
             // 
             // btnAddBike
             // 
-            this.btnAddBike.Location = new System.Drawing.Point(640, 29);
+            this.btnAddBike.Location = new System.Drawing.Point(637, 12);
+            this.btnAddBike.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnAddBike.Name = "btnAddBike";
-            this.btnAddBike.Size = new System.Drawing.Size(148, 31);
+            this.btnAddBike.Size = new System.Drawing.Size(103, 43);
             this.btnAddBike.TabIndex = 1;
             this.btnAddBike.Text = "Додати велосипед";
             this.btnAddBike.UseVisualStyleBackColor = true;
-            this.btnAddBike.Click += new System.EventHandler(this.btnAddBike_Click);
+            this.btnAddBike.Click += new System.EventHandler(this.BtnAddBike_Click);
             // 
             // btnClose
             // 
-            this.btnClose.Location = new System.Drawing.Point(640, 374);
+            this.btnClose.Location = new System.Drawing.Point(637, 274);
+            this.btnClose.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(148, 31);
+            this.btnClose.Size = new System.Drawing.Size(103, 32);
             this.btnClose.TabIndex = 2;
             this.btnClose.Text = "Закрити";
             this.btnClose.UseVisualStyleBackColor = true;
-            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
+            this.btnClose.Click += new System.EventHandler(this.BtnClose_Click);
             // 
-            // fMain
+            // listBox1
+            // 
+            this.listBox1.FormattingEnabled = true;
+            this.listBox1.ItemHeight = 16;
+            this.listBox1.Location = new System.Drawing.Point(16, 12);
+            this.listBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.listBox1.Name = "listBox1";
+            this.listBox1.Size = new System.Drawing.Size(612, 292);
+            this.listBox1.TabIndex = 3;
+            this.listBox1.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged_1);
+            // 
+            // invalidKatafotiExceptionBindingSource
+            // 
+            this.invalidKatafotiExceptionBindingSource.DataSource = typeof(Lab_8.InvalidKatafotiException);
+            // 
+            // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(756, 321);
+            this.Controls.Add(this.listBox1);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.btnAddBike);
-            this.Controls.Add(this.tbBikeInfo);
-            this.Name = "fMain";
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "\"Лабораторна робота №8\"";
-            this.Load += new System.EventHandler(this.fMain_Load);
+            this.Text = "Лабораторна робота №8";
+            this.Load += new System.EventHandler(this.MainForm_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.invalidKatafotiExceptionBindingSource)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.TextBox tbBikeInfo;
         private System.Windows.Forms.Button btnAddBike;
         private System.Windows.Forms.Button btnClose;
-        private System.Windows.Forms.ColorDialog colorDialog1;
+        private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.BindingSource invalidKatafotiExceptionBindingSource;
     }
 }
-
